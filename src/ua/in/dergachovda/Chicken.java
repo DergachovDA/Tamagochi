@@ -40,12 +40,14 @@ public class Chicken {
 
     public void lifetime() {
         Date time = new Date();
-        long step = (time.getTime() - this.lastTime.getTime()) / 1000 / 6;
-        this.lastTime = time;
-        for (int i = 0; i < step; i++) {
-            stepLive();
-            if (this.health == 0)
-                rip();
+        long step = (time.getTime() - this.lastTime.getTime()) / ( 1000 * 10);
+        if (step > 0) {
+            this.lastTime = time;
+            for (int i = 0; i < step; i++) {
+                stepLive();
+                if (this.health == 0)
+                    rip();
+            }
         }
     }
 
@@ -77,8 +79,10 @@ public class Chicken {
     }
 
     public String toString() {
-        String chickenAge = this.age / 24 + " day, " + this.age % 24 + " hours";
-        return "Chicken " + name + ": age: " + chickenAge + "; health: " + this.health + "%; hungry: " + this.hunger + "%; mood:" + this.mood + "%";
+        int day = this.age / 24;
+        int hours = this.age - (day * 24);
+        String chickenAge = day + " day, " + hours + " hours";
+        return "Chicken: " + name + "\nage    : " + chickenAge + "\nhealth : " + this.health + "%\nhungry : " + this.hunger + "%\nmood   : " + this.mood + "%";
     }
 
 }
