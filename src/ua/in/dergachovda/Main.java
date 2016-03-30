@@ -5,15 +5,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-
         Scanner scanner = new Scanner(System.in);
-
         Chicken chicken = new Chicken("Chip");
 
         System.out.println("Hi. My name is " + chicken.name + ".");
         System.out.println(chicken);
         System.out.println("to take help, type \"help\"");
-
 
         while (true) {
             System.out.println("Enter the command:");
