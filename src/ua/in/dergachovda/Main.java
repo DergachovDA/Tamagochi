@@ -7,9 +7,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Chicken chicken = new Chicken("Chip");
 
-        System.out.println("Hi. My name is " + chicken.name + ".");
+        System.out.println("ᕙ(`▽´)ᕗ Hi. My name is " + chicken.name + ".");
         System.out.println("to take help, type \"help\"");
-        System.out.println(chicken);
 
         while (true) {
             System.out.println("Enter the command:");

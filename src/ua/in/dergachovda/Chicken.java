@@ -82,7 +82,7 @@ public class Chicken {
         int day = this.age / 24;
         int hours = this.age - (day * 24);
         String chickenAge = day + " day, " + hours + " hours";
-        return "Chicken: " + name + "\nage    : " + chickenAge + "\nhealth : " + this.health + "%\nhungry : " + this.hunger + "%\nmood   : " + this.mood + "%";
+        return "Chicken: " + name + "\nage    : " + chickenAge + "\nhealth : " + this.health + "%\nhungry : " + this.hunger + "%\nmood   : " + this.mood + "%\nᕙ(`▽´)ᕗ";
     }
 
 }
