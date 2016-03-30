@@ -4,12 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        Scanner scanner = new Scanner(System.in);
 
         Chicken chicken = new Chicken("Chip");
 
@@ -17,22 +18,12 @@ public class Main {
         System.out.println(chicken);
         System.out.println("to take help, type \"help\"");
 
-        HashSet <String> commands = new HashSet<String>();
-        commands.add("help");
-        commands.add("show");
-        commands.add("exit");
-        commands.add("feed");
-        commands.add("doc");
-        commands.add("game");
-
 
         while (true) {
             System.out.println("Enter the command:");
-            String command = reader.readLine();
-
-            if (commands.contains(command)) {
-
-                if (command.equals("help")) {
+            String command = scanner.next();
+            switch (command) {
+                case "help":
                     System.out.println("help - Help");
                     System.out.println("show - Show chicken");
                     System.out.println("exit - Exit");
@@ -40,35 +31,28 @@ public class Main {
                     System.out.println("doc - Doctor the chicken");
                     System.out.println("game - Game elevates mood");
                     chicken.lifetime();
-                }
-
-                if (command.equals("show")) {
+                    break;
+                case "show":
                     chicken.lifetime();
                     System.out.println(chicken);
-                }
-
-                if (command.equals("feed")) {
+                    break;
+                case "feed":
                     chicken.feed();
                     System.out.println(chicken);
-                }
-
-                if (command.equals("doc")) {
+                    break;
+                case "doc":
                     chicken.doctor();
                     System.out.println(chicken);
-                }
-
-                if (command.equals("game")) {
+                    break;
+                case "game":
                     chicken.game();
                     System.out.println(chicken);
-                }
-
-                if (command.equals("exit"))
+                    break;
+                case "exit":
                     System.exit(0);
-
-            }
-            else
-                System.out.println("error");
+                    break;
+                default:
+                    System.out.println("error");
        }
-
     }
 }
