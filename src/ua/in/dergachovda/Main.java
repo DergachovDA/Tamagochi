@@ -1,14 +1,10 @@
 package ua.in.dergachovda;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args) throws InterruptedException {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -53,6 +49,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("error");
-       }
+            }
+        }
     }
 }
