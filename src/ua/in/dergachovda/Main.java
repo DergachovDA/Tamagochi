@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
         public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
-        Chicken chicken = new Chicken("Chip");
+        Chicken chicken = new Chicken(args[0]);
 
         System.out.println(chicken.avatar + " Hi. My name is " + chicken.name + ".");
         System.out.println("to take help, type \"help\"\n");
@@ -13,6 +13,7 @@ public class Main {
         while (true) {
             System.out.println("\nEnter the command:");
             String command = scanner.next();
+            chicken.lifetime();
             switch (command) {
                 case "help":
                     System.out.println("help - Help");
@@ -21,10 +22,9 @@ public class Main {
                     System.out.println("doc  - Doctor the chicken");
                     System.out.println("game - Game elevates mood");
                     System.out.println("exit - Exit\n");
-                    chicken.lifetime();
                     break;
                 case "show":
-                    chicken.lifetime();
+//                    chicken.lifetime();
                     break;
                 case "feed":
                     chicken.feed();
