@@ -7,11 +7,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Chicken chicken = new Chicken("Chip");
 
-        System.out.println("ᕙ(`▽´)ᕗ Hi. My name is " + chicken.name + ".");
-        System.out.println("to take help, type \"help\"");
+        System.out.println(chicken.avatar + " Hi. My name is " + chicken.name + ".");
+        System.out.println("to take help, type \"help\"\n");
 
         while (true) {
-            System.out.println("Enter the command:");
+            System.out.println("\nEnter the command:");
             String command = scanner.next();
             switch (command) {
                 case "help":
@@ -20,7 +20,8 @@ public class Main {
                     System.out.println("feed - Feed the chicken");
                     System.out.println("doc  - Doctor the chicken");
                     System.out.println("game - Game elevates mood");
-                    System.out.println("exit - Exit");
+                    System.out.println("exit - Exit\n");
+                    chicken.lifetime();
                     break;
                 case "show":
                     chicken.lifetime();
@@ -38,7 +39,7 @@ public class Main {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("error");
+                    System.out.println("error\n");
             }
             System.out.println(chicken);
         }

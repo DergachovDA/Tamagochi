@@ -5,8 +5,9 @@ import java.util.Date;
 
 public class Chicken {
     String name;    // Имя
-    Date lastTime;
-    int age;        // возраст (часов)
+    String avatar;  // Аватарка
+    Date lastTime;  // Время создания, а потом время последнего обращения
+    int age;        // возраст
     int health;     // здоровье (%)
     int hunger;     // голод (%)
     int mood;       // настроение (%)
@@ -14,6 +15,7 @@ public class Chicken {
 
     public Chicken(String name) {
         this.name = name;
+        this.avatar = "~(`v´)~";
         this.age = 0;
         this.health = 100;
         this.hunger = 20;
@@ -22,25 +24,25 @@ public class Chicken {
     }
 
     public void feed() {
-        lifetime();
         byte n = 30;
         this.hunger = this.hunger - n < 0 ? 0 : this.hunger - n;
+        lifetime();
     }
 
     public void game() {
-        lifetime();
         byte n = 30;
         this.mood = this.mood + n > 100 ? 100 : this.mood + n;
+        lifetime();
     }
 
     public void doctor() {
-        lifetime();
         this.health = 100;
+        lifetime();
     }
 
     public void lifetime() {
         Date time = new Date();
-        long step = (time.getTime() - this.lastTime.getTime()) / ( 1000 * 10);
+        long step = (time.getTime() - this.lastTime.getTime()) / ( 1000 * 2);
         if (step > 0) {
             this.lastTime = time;
             for (int i = 0; i < step; i++) {
@@ -48,7 +50,32 @@ public class Chicken {
                 if (this.health == 0)
                     rip();
             }
+            this.avatar = getAvatar();
         }
+    }
+
+    public String getAvatar() {
+        String moodl, moodr, healthl, healthr, hungerc;
+        if (this.hunger > 55) {
+            hungerc = "O";
+        } else {
+            hungerc = "v";
+        }
+        if (this.health > 45) {
+            healthl = "`";
+            healthr = "´";
+        } else {
+            healthl = "´";
+            healthr = "`";
+        }
+        if (this.mood > 50) {
+            moodl = "~";
+            moodr = "~";
+        } else {
+            moodl = "<";
+            moodr = ">";
+        }
+        return moodl + "(" + healthl + hungerc + healthr + ")" + moodr;
     }
 
     // Смерть циплёнка
@@ -82,7 +109,7 @@ public class Chicken {
         int day = this.age / 24;
         int hours = this.age - (day * 24);
         String chickenAge = day + " day, " + hours + " hours";
-        return "Chicken: " + name + "\nage    : " + chickenAge + "\nhealth : " + this.health + "%\nhungry : " + this.hunger + "%\nmood   : " + this.mood + "%\nᕙ(`▽´)ᕗ";
+        return "Chicken: " + name + "\nage    : " + chickenAge + "\nhealth : " + this.health + "%\nhungry : " + this.hunger + "%\nmood   : " + this.mood + "%\n" + this.avatar;
     }
 
 }
